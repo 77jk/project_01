@@ -1,3 +1,6 @@
+class InvalidUsernameException(Exception):
+        pass
+
 class KoreanWordChainGame:
     def __init__(self):
         self.words = []  # 입력된 단어를 저장하는 리스트
@@ -70,17 +73,13 @@ class KoreanWordChainGame:
                 print("이미 사용된 단어입니다.")
                 print("다른 단어를 입력하세요.")
             
-    class InvalidUsernameException(Exception):
-        pass
-
     def switch_player(self):  # 플레이어 교체
-        if self.current_player == self.player_a:
-            self.current_player = self.player_b
-        elif self.current_player == self.player_b:
-            self.current_player = self.player_a
+        if self.current_player == 'A': # 'A' 대신 'self.player_a'로 변경하면 에러남
+            self.current_player = 'B'
+        elif self.current_player == 'B':
+            self.current_player = 'A'
         else:
             InvalidUsernameException()
-                        
 
 if __name__ == "__main__":
 
